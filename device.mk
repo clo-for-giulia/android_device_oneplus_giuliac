@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     android.hidl.allocator@1.0-service \
     hwservicemanager
 
+# Init
+PRODUCT_PACKAGES += \
+    init.haptics.rc
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint3-service.strongbox.nxp \
@@ -69,8 +73,10 @@ $(call soong_config_set_bool,OPLUS_LINEAGE_TOUCH_HAL,ENABLE_HTPR,false)
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
-$(call soong_config_set_bool,qti_vibrator,use_effect_stream,true)
-$(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.oplus.giuliac)
+$(call soong_config_set,qti_vibrator,use_effect_stream,true)
+$(call soong_config_set,qti_vibrator,use_effect_stream_strength,true)
+$(call soong_config_set,qti_vibrator,use_primitive_effect_stream,true)
+$(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.oplus_sm8650-richtap)
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
