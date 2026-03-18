@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Haptic Effect Styles -->
     <string-array name="haptic_effect_style_entries" translatable="false">
+        <item>Stock Default</item>
+        <item>Stock Soft</item>
         <item>OP12 RichTap</item>
         <item>OP12 Crisp</item>
         <item>OP12 Gentle</item>
@@ -24,6 +26,8 @@
     </string-array>
 
     <string-array name="haptic_effect_style_values" translatable="false">
+        <item>default</item>
+        <item>soft</item>
         <item>richtap</item>
         <item>crisp</item>
         <item>gentle</item>

@@ -1,14 +1,2 @@
-on property:debug.haptic_profile=richtap
-    setprop persist.vendor.haptic_profile richtap
-
-on property:debug.haptic_profile=crisp
-    setprop persist.vendor.haptic_profile crisp
-
-on property:debug.haptic_profile=gentle
-    setprop persist.vendor.haptic_profile gentle
-
-on property:debug.haptic_profile=op13crisp
-    setprop persist.vendor.haptic_profile op13crisp
-
-on property:debug.haptic_profile=op13gentle
-    setprop persist.vendor.haptic_profile op13gentle
+on property:debug.haptic_profile=*
+    setprop persist.vendor.haptic_profile ${debug.haptic_profile}
