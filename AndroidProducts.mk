@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_giuliac.mk
+    $(LOCAL_DIR)/custom_giuliac.mk
