@@ -16,9 +16,8 @@ $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # ASCP flags
 ASCP_MAINTAINER := 0mar
-ASCP_OFFICIAL := true
 
-PRODUCT_NAME := custom_giuliac
+PRODUCT_NAME := giuliac
 PRODUCT_DEVICE := giuliac
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
