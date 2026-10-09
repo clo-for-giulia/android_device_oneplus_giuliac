@@ -29,6 +29,9 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set,surfaceflinger,frame_rate_category_high,120)
 $(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
 
+# Fingerprint
+$(call soong_config_set_bool,qtidisplay,oplus_udfps,true)
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.allocator@1.0-service \
@@ -38,20 +41,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.haptics.rc
 
-# Keymint
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint3-service.strongbox.nxp \
-    android.hardware.weaver-service.nxp
-
-# LiveDisplay
-$(call soong_config_set_bool,OPLUS_LINEAGE_LIVEDISPLAY_HAL,ENABLE_SE,false)
+# OPlus Camera
+$(call inherit-product-if-exists, vendor/oplus/camera/giuliac/opluscamera.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-custom
-
 PRODUCT_PACKAGES += \
     KeyHandlerResTarget \
+    OPlusApertureResTarget \
     OPlusFrameworksResTarget \
     OPlusSettingsProviderResTarget \
     OPlusSettingsResTarget \
@@ -64,10 +60,6 @@ PRODUCT_SHIPPING_API_LEVEL := 35
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# Touch features
-$(call soong_config_set_bool,OPLUS_LINEAGE_TOUCH_HAL,ENABLE_GM,true)
-$(call soong_config_set_bool,OPLUS_LINEAGE_TOUCH_HAL,ENABLE_HTPR,false)
 
 # Vibrator
 PRODUCT_PACKAGES += \
