@@ -19,9 +19,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'hardware/oplus',
-    'hardware/qcom-caf/sm8650',
     'vendor/oneplus/sm8650-common',
-    'vendor/qcom/opensource/commonsys-intf/display',
 ]
 
 
@@ -75,14 +73,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_handle_open')
         .clear_symbol_version('remote_register_buf_attr')
         .clear_symbol_version('remote_register_buf'),
-    (
-        'odm/lib64/libdisplaycolorfeature.so',
-        'odm/lib64/libdisplayfossfeature_nature.so',
-        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
-        'vendor/lib64/libdpps.so',
-        'vendor/lib64/libsnapdragoncolor-manager.so',
-    ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
         .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
     'vendor/etc/libnfc-nxp.conf': blob_fixup()
