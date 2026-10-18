@@ -54,6 +54,10 @@ PRODUCT_PACKAGES += \
     OPlusSystemUIResTarget \
     OPlusWifiResTarget
 
+#PWM
+$(call inherit-product, device/oneplus/giuliac/OplusParts/PWM/oplusparts_pwm.mk)
+
+
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 35
 

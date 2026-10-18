@@ -1,0 +1,46 @@
+//
+// Copyright (C) 2024-2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "OplusPartsPWM",
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "com.google.android.material_material",
+        "SettingsLib",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+
+    required: [
+        "privapp-permissions-oplusparts-pwm.xml",
+        "init.oplusparts.pwm.rc",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp-permissions-oplusparts-pwm.xml",
+    src: "privapp-permissions-oplusparts-pwm.xml",
+    sub_dir: "permissions",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.oplusparts.pwm.rc",
+    src: "init/init.oplusparts.pwm.rc",
+    sub_dir: "init",
+    vendor: true,
+}

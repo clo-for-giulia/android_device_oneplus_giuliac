@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OplusParts PWM</string>
+    <string name="dc_dimming_enable_title">One-Pulse EM / DC Dimming</string>
+    <string name="dc_dimming_enable_summary">Уменьшить мерцание экрана с использованием одноимпульсной ШИМ-модуляции</string>
+</resources>

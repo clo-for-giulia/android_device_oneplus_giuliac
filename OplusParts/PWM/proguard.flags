@@ -1,0 +1,9 @@
+-keep class org.lineageos.settings.pwm.* {
+    *;
+}
+-keep class org.lineageos.settings.pwm.dc.* {
+    *;
+}
+-keep class org.lineageos.settings.pwm.utils.* {
+    *;
+}
