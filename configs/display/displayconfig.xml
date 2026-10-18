@@ -66,4 +66,14 @@
             </point>
         </sdrHdrRatioMap>
     </highBrightnessMode>
+
+    <idleScreenRefreshRateTimeout>
+        <luxThresholds>
+            <point>
+                <lux>0</lux>
+                <timeout>500</timeout>
+            </point>
+        </luxThresholds>
+    </idleScreenRefreshRateTimeout>
+    <supportsVrr>true</supportsVrr>
 </displayConfiguration>
