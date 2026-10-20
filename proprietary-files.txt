@@ -47,6 +47,18 @@ odm/lib64/liboprec_audrec.so
 odm/lib64/liboprec_audrec_wrapper.so
 odm/lib64/libtfa98xx.so
 
+# Audio spatializer
+odm/etc/spatializer/HP_MOVIE_ANALOG.bin
+odm/etc/spatializer/HP_MOVIE_BLUETOOTH.bin
+odm/etc/spatializer/HP_MOVIE_DIGITAL.bin
+odm/etc/spatializer/HP_MOVIE_GALILEO.bin
+odm/etc/spatializer/HP_MUSIC_ANALOG.bin
+odm/etc/spatializer/HP_MUSIC_BLUETOOTH.bin
+odm/etc/spatializer/HP_MUSIC_DIGITAL.bin
+odm/etc/spatializer/HP_MUSIC_GALILEO.bin
+odm/lib64/soundfx/liboplus_spatializer.so
+odm/lib64/liboplus_audiox.so
+
 # Audio configs
 odm/etc/mixer_paths.xml
 odm/etc/resourcemanager.xml
@@ -1557,6 +1569,26 @@ vendor/firmware/evass.b18
 vendor/firmware/evass.b19
 vendor/firmware/evass.mbn
 vendor/firmware/evass.mdt
+
+# Face unlock
+odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service_uff
+odm/etc/init/vendor.oplus.hardware.biometrics.face@1.0-service.rc
+odm/etc/vintf/manifest/manifest_oplus_face.xml
+odm/lib64/libstfaceunlockocl_uff.so
+odm/init.oplus.face.rc
+vendor/lib64/libcamera2ndk_vendor.so;DISABLE_DEPS
+
+# Face unlock firmware
+odm/vendor/firmware/uff_face.b00
+odm/vendor/firmware/uff_face.b01
+odm/vendor/firmware/uff_face.b02
+odm/vendor/firmware/uff_face.b03
+odm/vendor/firmware/uff_face.b04
+odm/vendor/firmware/uff_face.b05
+odm/vendor/firmware/uff_face.b06
+odm/vendor/firmware/uff_face.b07
+odm/vendor/firmware/uff_face.b08
+odm/vendor/firmware/uff_face.mdt
 
 # Fingerprint firmware
 odm/vendor/firmware/uff_jv.b00
