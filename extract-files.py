@@ -94,7 +94,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libui-stock.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
     'vendor/lib64/com.qualcomm.mcx.nonlinearmapper.so': blob_fixup()
-        .binary_regex_replace(b'\x5f\x24\x03\xd5\x48\x65\x8a\xd2', b'\x5f\x24\x03\xd5\xc0\x03\x5f\xd6'),
+        .sig_replace("5f 24 03 d5 48 65 8a d2", "5f2403d5c0035fd6"),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
