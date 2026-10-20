@@ -1,4 +1,4 @@
-#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
+#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils:../../../hardware/oplus/extract-utils-ext python3
 #
 # SPDX-FileCopyrightText: 2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
@@ -15,6 +15,9 @@ from extract_utils.fixups_lib import (
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
+)
+from extract_utils_oplus import (
+    add_generated_thermal_engine_config,
 )
 
 namespace_imports = [
@@ -74,6 +77,9 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(
         r'(service vendor\.camera-provider .*?\n)',
         r'\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
+    'vendor/lib64/libcamera2ndk_vendor.so': blob_fixup()
+        .replace_needed('android.frameworks.cameraservice.device-V1-ndk.so', 'android.frameworks.cameraservice.device-V3-ndk.so')
+        .replace_needed('android.frameworks.cameraservice.service-V1-ndk.so', 'android.frameworks.cameraservice.service-V3-ndk.so'),
     'vendor/lib64/libcwb_qcom_aidl.so': blob_fixup()
         .add_needed('libui_shim.so'),
     (
@@ -88,7 +94,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libui-stock.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
     'vendor/lib64/com.qualcomm.mcx.nonlinearmapper.so': blob_fixup()
-        .binary_regex_replace(b'\x5f\\x24\x03\xd5\x48\x65\x8a\xd2', b'\x5f\x24\x03\xd5\xc0\x03\x5f\xd6'),
+        .binary_regex_replace(b'\x5f\x24\x03\xd5\x48\x65\x8a\xd2', b'\x5f\x24\x03\xd5\xc0\x03\x5f\xd6'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
@@ -98,6 +104,11 @@ module = ExtractUtilsModule(
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     add_firmware_proprietary_file=True,
+)
+
+add_generated_thermal_engine_config(
+    module,
+    horae_target_config='system_ext/etc/horae/horae_SM8650.conf',
 )
 
 if __name__ == '__main__':
